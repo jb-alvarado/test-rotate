@@ -12,16 +12,11 @@ fn main() {
     std::fs::File::create("logs/test.log.2022-05-03").unwrap();
     std::fs::File::create("logs/test.log.2022-05-04").unwrap();
 
-    let log_config = ConfigBuilder::new()
-        .build();
+    let log_config = ConfigBuilder::new().build();
 
     let log_file = FileRotate::new(
         &log_path,
-        AppendTimestamp::with_format(
-            "%Y-%m-%d",
-            FileLimit::MaxFiles(1),
-            DateFrom::DateYesterday,
-        ),
+        AppendTimestamp::with_format("%Y-%m-%d", FileLimit::MaxFiles(1), DateFrom::DateYesterday),
         ContentLimit::Time(TimeFrequency::Daily),
         Compression::None,
     );
