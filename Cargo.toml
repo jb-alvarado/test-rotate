@@ -8,3 +8,5 @@ edition = "2021"
 [dependencies]
 file-rotate = { git = "https://github.com/Ploppz/file-rotate.git", branch = "timestamp-parse-fix" }
 simplelog = { version = "^0.12", features = ["paris"] }
+filetime = "0.2"
+
